@@ -52,3 +52,18 @@ st.divider()
 st.write(f"No. of Items in Cart: {sum(st.session_state.cart.values())}")
 if st.button("Go to Checkout"):
     st.switch_page("pages/checkout.py")
+
+from pathlib import Path
+
+def get_structure(path: Path):
+    structure = {}
+    for entry in path.iterdir():
+        if entry.is_dir():
+            structure[entry.name] = get_structure(entry)
+        else:
+            structure[entry.name] = None
+    return structure
+
+folder_path = Path(__file__).parent
+nested_structure = get_structure(folder_path)
+st.write(nested_structure)
