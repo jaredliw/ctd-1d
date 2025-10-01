@@ -51,4 +51,4 @@ for i, category in enumerate(categories):
 st.divider()
 st.write(f"No. of Items in Cart: {sum(st.session_state.cart.values())}")
 if st.button("Go to Checkout"):
-    st.switch_page("./pages/checkout.py")
+    st.switch_page("pages/checkout.py")

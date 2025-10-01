@@ -15,7 +15,7 @@ st.title("SUTD Kopitiam - Checkout", anchor=False)
 st.write(st.session_state.cart)
 
 if st.button("Back to Memu", key="back_to_menu"):
-    st.switch_page("./app.py")
+    st.switch_page("app.py")
 if st.button("Checkout", key="checkout"):
     st.toast("Checkout successful!")
     st.session_state.cart = {}
