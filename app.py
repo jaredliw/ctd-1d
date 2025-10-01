@@ -30,5 +30,6 @@ for i, category in enumerate(categories):
                     st.write(f"Price: ${item['price']:.2f}")
                     st.write(item["desc"])
                     with st.columns([1, 1])[0]:
-                        st.number_input("", min_value=0, step=1, key=item["name"], label_visibility="collapsed")
+                        st.number_input("No. of Items", min_value=0, step=1, key=item["name"],
+                                        label_visibility="collapsed")
                 j += 1
