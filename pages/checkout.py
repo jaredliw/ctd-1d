@@ -28,11 +28,12 @@ st.title("SUTD Kopitiam - Checkout", anchor=False)
 
 st.markdown(
         """
-        <div style="background-color:#f0f8ff; 
+        <div style="background-color:#FFE5B4; 
                     border: 0px; 
                     padding: 12px 16px; 
                     border-radius: 8px; 
-                    margin-bottom: 16px;">
+                    margin-bottom: 16px;
+                    color: #1a1a1a;">
             <b>💡 Discount Rule:</b><br>
             - Spend <b>$20+</b> → $1 off <br>
             - Spend <b>$30+</b> → $2 off <br>
