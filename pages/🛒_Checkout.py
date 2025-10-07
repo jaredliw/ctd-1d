@@ -1,10 +1,11 @@
-import streamlit as st
 from pathlib import Path
+
+import streamlit as st
+
 from utils import Database
 
 db = Database()
 assets_dir = Path("./assets")
-
 
 if "cart" not in st.session_state or not isinstance(st.session_state.cart, dict):
     st.session_state.cart = {}
@@ -63,7 +64,7 @@ if not cart_items:
 else:
     st.subheader("Order Summary", anchor=False)
 
-    #th
+    # th
     header_cols = st.columns([1, 3, 2, 1, 1, 1])
     header_cols[0].markdown("**Image**")
     header_cols[1].markdown("**Item**")
@@ -72,8 +73,7 @@ else:
     header_cols[4].markdown("**Price**")
     header_cols[5].markdown("**Subtotal**")
 
-
-    #td
+    # td
     for name, category, qty, price, subtotal in cart_items:
         row = st.columns([1, 3, 2, 1, 1, 1])
         img_path = assets_dir / f"{name}.jpg"
@@ -83,8 +83,8 @@ else:
         row[3].write(qty)
         row[4].write(f"${price:.2f}")
         row[5].write(f"${subtotal:.2f}")
-    
-    #discount
+
+    # Discount
     if total_price >= 40:
         discount = 3
     elif total_price >= 30:
@@ -102,12 +102,12 @@ else:
     st.write(f"**Discount Applied:** ${discount:.2f}")
     st.write(f"**Final Price:** ${final_price:.2f}")
 
-#buttons
+# Buttons
 col1, col2 = st.columns(2)
 
 with col1:
     if st.button("Back to Menu"):
-        st.switch_page("app.py")
+        st.switch_page("☕_Menu.py")
 
 with col2:
     checkout_clicked = st.button("Checkout")

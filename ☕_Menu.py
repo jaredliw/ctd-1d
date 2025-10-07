@@ -1,5 +1,7 @@
-import streamlit as st
 from pathlib import Path
+
+import streamlit as st
+
 from utils import Database
 
 db = Database()
@@ -42,7 +44,7 @@ for i, category in enumerate(categories):
                     st.write(item["desc"])
                     with st.columns([1, 1])[0]:
                         num = st.number_input("No. of Items", min_value=0, step=1, key=item["id"],
-                                        label_visibility="collapsed")
+                                              label_visibility="collapsed")
                         st.session_state.cart[item["id"]] = num
                         if num <= 0:
                             del st.session_state.cart[item["id"]]
@@ -51,19 +53,4 @@ for i, category in enumerate(categories):
 st.divider()
 st.write(f"No. of Items in Cart: {sum(st.session_state.cart.values())}")
 if st.button("Go to Checkout"):
-    st.switch_page("pages/checkout.py")
-
-from pathlib import Path
-
-def get_structure(path: Path):
-    structure = {}
-    for entry in path.iterdir():
-        if entry.is_dir():
-            structure[entry.name] = get_structure(entry)
-        else:
-            structure[entry.name] = None
-    return structure
-
-folder_path = Path(__file__).parent
-nested_structure = get_structure(folder_path)
-st.write(nested_structure)
+    st.switch_page("pages/🛒_Checkout.py")
