@@ -10,39 +10,14 @@ assets_dir = Path("./assets")
 if "cart" not in st.session_state or not isinstance(st.session_state.cart, dict):
     st.session_state.cart = {}
 st.set_page_config(page_title="SUTD Kopitiam", page_icon="☕", layout="wide")
-st.markdown("""
-    <style>
-    .stSidebar {
-        display: none;
-    }
-    .checkout-card {
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 st.title("SUTD Kopitiam - Checkout", anchor=False)
 
-st.markdown(
-        """
-        <div style="background-color:#FFE5B4; 
-                    border: 0px; 
-                    padding: 12px 16px; 
-                    border-radius: 8px; 
-                    margin-bottom: 16px;
-                    color: #1a1a1a;">
-            <b>💡 Discount Rule:</b><br>
-            - Spend <b>$20+</b> → $1 off <br>
-            - Spend <b>$30+</b> → $2 off <br>
-            - Spend <b>$40+</b> → $3 off
-        </div>
-        """,
-        unsafe_allow_html=True
-    )  
+st.warning("""**Discount Rule**
+- Spend **\$20+** -> $1 off
+- Spend **\$30+** -> $2 off
+- Spend **\$40+** -> $3 off
+""", icon="💡")
 
 cart_items = []
 total_items = 0
@@ -114,45 +89,7 @@ with col2:
 
 if checkout_clicked:
     if total_price == 0:
-        st.markdown(
-            """
-            <div style="
-                background-color:#fff3cd;
-                color:#664d03;
-                padding:10px 16px;
-                border:1px solid #ffeeba;
-                border-radius:6px;
-                width:450px;
-                margin-top:10px;
-            ">
-            ⚠️ Your cart is empty. Please add items before checkout.
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.error("Your cart is empty. Please add items before checkout.", icon="⚠️")
     else:
         st.session_state.cart = {}
-        st.markdown(
-            """
-            <div style="
-                background-color:#d4edda;
-                color:#155724;
-                padding:10px 16px;
-                border:1px solid #c3e6cb;
-                border-radius:6px;
-                width:400px;
-                margin-top:10px;
-            ">
-            Checkout successful!
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-# st.write(st.session_state.cart)
-
-# if st.button("Back to Memu", key="back_to_menu"):
-#     st.switch_page("app.py")
-# if st.button("Checkout", key="checkout"):
-#     st.toast("Checkout successful!")
-#     st.session_state.cart = {}
+        st.success("Checkout successful! Please proceed to the menu for the next transaction.", icon="✅")

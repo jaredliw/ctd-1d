@@ -9,13 +9,6 @@ assets_dir = Path("./assets")
 if "cart" not in st.session_state or not isinstance(st.session_state.cart, dict):
     st.session_state.cart = {}
 st.set_page_config(page_title="SUTD Kopitiam", page_icon="☕", layout="wide")
-st.markdown("""
-    <style>
-    .stSidebar {
-        display: none;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 st.title("SUTD Kopitiam", anchor=False)
 st.image(assets_dir / "cover.jpg")
