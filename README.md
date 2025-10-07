@@ -12,6 +12,15 @@ A Streamlit-based web app for browsing and ordering food and drinks at SUTD Kopi
 
 1. Clone the repository.
 2. Install dependencies: `pip install -r requirements.txt`.
-3. Run the app: `streamlit run app.py`.
+3. Configure [Firebase](https://console.firebase.google.com) and import the data in `data/` folder.
+4. Create a `secrets.toml` file in the `.streamlit/` folder with your Firebase credentials. Example:
+   ```toml
+    [firebase]
+    db_url = "https://something.asia-southeast1.firebasedatabase.app/"
+    email = "sample@gmail.com"
+    password = "your-password"
+    apikey = "Your-API-Key"
+   ```
+5. Run the app: `streamlit run app.py`.
 
-*This is a group project for 10.025 Computational Thinking For Design @ SUTD.*
+*This is a group project of 10.025 Computational Thinking For Design @ SUTD.*
