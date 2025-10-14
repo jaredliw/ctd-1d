@@ -35,7 +35,7 @@ for i, category in enumerate(categories):
                     st.subheader(item["name"], divider="gray", anchor=False)
                     st.write(f"Price: ${item['price']:.2f}")
                     st.write(item["desc"])
-                    with st.columns([1, 1])[0]:
+                    with st.columns([2, 1])[0]:
                         num = st.number_input("No. of Items", min_value=0, step=1, key=item["id"],
                                               label_visibility="collapsed")
                         st.session_state.cart[item["id"]] = num
